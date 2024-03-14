@@ -1,4 +1,5 @@
 import 'package:earthquake_log_app/providers/app_data_provider.dart';
+import 'package:earthquake_log_app/settings_page.dart';
 import 'package:earthquake_log_app/utils/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +26,11 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             onPressed: _showSortingDialog,
             icon: const Icon(Icons.sort),
+          ),
+          IconButton(
+            onPressed: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const SettingsPage())),
+            icon: const Icon(Icons.settings),
           ),
         ],
         title: const Text('EarthQuake'),
