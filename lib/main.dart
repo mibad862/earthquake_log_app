@@ -1,8 +1,12 @@
+import 'package:earthquake_log_app/pages/home_page.dart';
+import 'package:earthquake_log_app/providers/app_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (ctx) => AppDataProvider(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,10 +19,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       builder: EasyLoading.init(),
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+          brightness: Brightness.dark,
+        ),
         useMaterial3: true,
       ),
-      home: const Placeholder(),
+      home: const HomePage(),
     );
   }
 }
